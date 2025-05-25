@@ -14,11 +14,12 @@ app = Flask(__name__)
 
 # Config
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback-secret')
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_SERVER'] = 'smtp.office365.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')  # your Outlook email
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')  # your app password or normal password
+
 
 mail = Mail(app)
 serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
